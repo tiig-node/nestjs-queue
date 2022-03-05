@@ -18,7 +18,7 @@
     "typescript",
     "queue",
     "redis"
-   ],
+  ],
   "dependencies": {
     "@nestjs/common": "^8.0.0",
     "better-queue": "^3.8.10"
