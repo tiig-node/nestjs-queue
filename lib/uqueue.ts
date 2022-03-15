@@ -21,7 +21,7 @@ export class UniqueQueue {
 
       const taskQueueId = this.arrQueue.findIndex(el => el.id === taskId);
       if (taskQueueId > -1) {
-        console.log(taskId, "Dequeue");
+        // console.log(taskId, "Dequeue");
         this.arrQueue.splice(taskQueueId, 1);
         // Handle finished result
       }
@@ -37,7 +37,7 @@ export class UniqueQueue {
   public enqueue (id: string, task: any) {
     // if (!this.arrQueue.find(el => el.id === id)) {]
     if (!this.inQueue(id)) {
-      console.log(id, "enqueue");
+      // console.log(id, "enqueue");
       this.arrQueue.push({ id });
       this.queue.push({ id, task });
     }
