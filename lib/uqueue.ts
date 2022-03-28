@@ -1,25 +1,29 @@
-import BetterQueue from "better-queue";
+import BetterQueue from 'better-queue';
 
 export class UniqueQueue {
   private arrQueue: Array<any>;
   private queue: any;
 
-  constructor (worker: any, options?: {
-    concurrent?: number;
-    afterProcessDelay?: number;
-  }) {
-    const opt = options || { };
-    this.arrQueue = new Array();
+  constructor(
+    worker: any,
+    options?: {
+      concurrent?: number;
+      afterProcessDelay?: number;
+    },
+  ) {
+    const opt = options || {};
+    this.arrQueue = [];
     this.queue = new BetterQueue(worker, {
       cancelIfRunning: false,
       concurrent: 5 || 1,
       // delayedDebounce: 3000,
-      ...opt
+      ...opt,
     });
-    this.queue.on("task_finish", (taskId: any, _result: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    this.queue.on('task_finish', (taskId: any, _result: any) => {
       // console.log(taskId, "Finish");
 
-      const taskQueueId = this.arrQueue.findIndex(el => el.id === taskId);
+      const taskQueueId = this.arrQueue.findIndex((el) => el.id === taskId);
       if (taskQueueId > -1) {
         // console.log(taskId, "Dequeue");
         this.arrQueue.splice(taskQueueId, 1);
@@ -28,13 +32,13 @@ export class UniqueQueue {
     });
   }
 
-  public inQueue (id: any) {
-    if (this.arrQueue.find(el => el.id === id)) {
+  public inQueue(id: any) {
+    if (this.arrQueue.find((el) => el.id === id)) {
       return true;
     } else return false;
   }
 
-  public enqueue (id: string, task: any) {
+  public enqueue(id: string, task: any) {
     // if (!this.arrQueue.find(el => el.id === id)) {]
     if (!this.inQueue(id)) {
       // console.log(id, "enqueue");

@@ -1,12 +1,11 @@
+import { Inject } from '@nestjs/common';
+import { QUEUE_EVENT_METADATA } from './queue.types';
 
-import { Inject } from "@nestjs/common";
-import { QUEUE_EVENT_METADATA } from "./queue.types";
-
-export function QueueInjection (name?: string) {
-  return Inject(`nestQueue_${name || "default"}`);
+export function QueueInjection(name?: string) {
+  return Inject(`nestQueue_${name || 'default'}`);
 }
 
-export function QueueWorker (eventName: string) {
+export function QueueWorker(eventName: string) {
   return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
     Reflect.defineMetadata(
       QUEUE_EVENT_METADATA,
@@ -14,9 +13,9 @@ export function QueueWorker (eventName: string) {
         eventName,
         target: target.constructor.name,
         methodName: propertyKey,
-        callback: descriptor.value
+        callback: descriptor.value,
       },
-      descriptor.value
+      descriptor.value,
     );
   };
 }
