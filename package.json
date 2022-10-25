@@ -20,7 +20,7 @@
     "release": "npx semantic-release"
   },
   "dependencies": {
-    "better-queue": "^3.8.10"
+    "better-queue": "3.8.12"
   },
   "devDependencies": {
     "@commitlint/cli": "17.1.2",
