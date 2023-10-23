@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/tiig-node/nestjs-queue/compare/v1.0.1...v2.0.0) (2023-10-23)
+
+
+### chore
+
+* tiig-node ([fb446e9](https://github.com/tiig-node/nestjs-queue/commit/fb446e9313f6cd33982aeb9b1fe8b9759c6a7c5c))
+
+
+### BREAKING CHANGES
+
+* Alterado nome da organização npkgdev para tiig-node
+
 ## [1.0.1](https://github.com/tiig-node/nestjs-queue/compare/v1.0.0...v1.0.1) (2022-03-15)
 
 
