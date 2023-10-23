@@ -2,7 +2,7 @@
 ## Queue manager for NestJS applications
 Easy for use and installation into you'r projects.
 
-`yarn add @npkgdev/nestjs-queue`
+`yarn add @tiig-node/nestjs-queue`
 
 *For better working you need to use `nest` package with `6.*.*` ver.*
 #### How to
@@ -13,7 +13,7 @@ Easy for use and installation into you'r projects.
 
     ```typescript
     import { Module } from '@nestjs/common';
-    import { QueueModule } from '@npkgdev/nestjs-queue';
+    import { QueueModule } from '@tiig-node/nestjs-queue';
 
     @Module({
         imports: [
@@ -58,7 +58,7 @@ Easy for use and installation into you'r projects.
     `@QueueWorker(eventName)` method decorator allows you to work with it. For example:
 
     ```typescript
-    import { QueueWorker } from '@npkgdev/nestjs-queue';
+    import { QueueWorker } from '@tiig-node/nestjs-queue';
 
     class TestService {
         @QueueWorker('testEvent')
